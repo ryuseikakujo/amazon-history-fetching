@@ -7,12 +7,10 @@ class AmazonBrowser
     browser = Watir::Browser.new :chrome, switches: ['--kiosk-printing']
     browser.goto(LOGIN_URL)
     browser.wait
-    # browser.text_field(id: 'ap_email').set('ryuseikakujo@gmail.com')
     browser.text_field(id: 'ap_email').set(ENV['EMAIL'])
     browser.element(id: "continue").click
     browser.wait
     browser.checkbox(name: "rememberMe").click
-    # browser.text_field(id: 'ap_password').set('zns7j8dW')
     browser.text_field(id: 'ap_password').set(ENV['PASSWORD'])
     browser.element(id: "signInSubmit").click
     browser.wait
